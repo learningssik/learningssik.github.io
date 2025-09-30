@@ -28,10 +28,21 @@ body {
 
 .sidebar h3 {
   font-size: 1.2em;
-  color: #333;
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 15px;
+}
+
+/* Site Title Style */
+.sidebar h3 a.site-title,
+.sidebar h3 a.site-title:visited {
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar h3 a.site-title:hover {
+  background-color: transparent;
+  color: #0052cc;
 }
 
 .sidebar-nav ul {
@@ -62,13 +73,14 @@ body {
     width: 100%;
     background-color: #0052cc; /* Atlassian Blue */
     color: #fff;
-    text-align: center;
-    padding: 12px 10px;
+    text-align: left;
+    padding: 12px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     margin-bottom: 20px;
     transition: background-color 0.2s ease;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .btn.new-post-btn:hover {
