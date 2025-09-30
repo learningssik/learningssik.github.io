@@ -4,11 +4,11 @@
 
 <nav class="sidebar-nav">
   <ul>
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
     <li>
       <details class="nav-section" open>
-        <summary>Home</summary>
+        <summary>개발</summary>
         <ul>
-          <li class="nav-subtitle">개발</li>
           {% for post in site.public %}
             <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
           {% endfor %}
