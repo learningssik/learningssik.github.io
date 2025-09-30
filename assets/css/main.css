@@ -56,6 +56,25 @@ body {
   color: #0052cc;
 }
 
+/* New Post Button */
+.btn.new-post-btn {
+    display: block;
+    width: 100%;
+    background-color: #0052cc; /* Atlassian Blue */
+    color: #fff;
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.btn.new-post-btn:hover {
+    background-color: #0065ff;
+}
+
 /* Main Content Styles */
 .main-content {
   flex-grow: 1;
