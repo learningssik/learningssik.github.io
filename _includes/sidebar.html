@@ -3,16 +3,29 @@
 <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/?filename=YYYY-MM-DD-new-post.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Alayout: post%0Adate: YYYY-MM-DD%0A---%0A%0A여기에 본문을 작성하세요." class="btn new-post-btn" target="_blank">+ 새 글 작성하기</a>
 
 <nav class="sidebar-nav">
+  <h4>개발</h4>
   <ul>
-    <li>
-      <details class="nav-section" open>
-        <summary>개발</summary>
-        <ul>
-          {% for post in site.public %}
-            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </details>
-    </li>
+    {%- assign posts_by_dir = site.public | group_by: 'dir' | sort: 'name' -%}
+    {%- for group in posts_by_dir -%}
+      {%- if group.name == '/public' -%}
+        {%- comment -%} Root posts in /_public {%- endcomment -%}
+        {%- for post in group.items -%}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Posts in subdirectories {%- endcomment -%}
+        <li>
+          <details class="nav-section" open>
+            {%- assign folder_name = group.name | remove_first: '/public/' -%}
+            <summary>{{ folder_name }}</summary>
+            <ul>
+              {%- for post in group.items -%}
+                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
   </ul>
 </nav>
