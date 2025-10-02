@@ -1,27 +1,24 @@
 <h3><a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a></h3>
 
-<a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/?filename=YYYY-MM-DD-new-post.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Alayout: default%0Adate: YYYY-MM-DD%0A---%0A%0A여기에 본문을 작성하세요." class="btn new-post-btn" target="_blank">+ 새 글 작성하기</a>
+<a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/?filename=YYYY-MM-DD-new-post.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Alayout: post%0Adate: YYYY-MM-DD%0A---%0A%0A여기에 본문을 작성하세요." class="btn new-post-btn" target="_blank">+ 새 글 작성하기</a>
 
 <nav class="sidebar-nav">
+  <h4>개발</h4>
   <ul>
-    <li><a href="{{ '/' | relative_url }}">Home</a></li>
-
-    {% comment %} Group posts by their directory {% endcomment %}
-    {% assign posts_by_dir = site.public | group_by: 'dir' %}
+    {% comment %} Group posts by directory and sort them {% endcomment %}
+    {% assign posts_by_dir = site.public | group_by: 'dir' | sort: 'name' %}
 
     {% for group in posts_by_dir %}
-      {% assign dirname = group.name | remove_first: "/_public" %}
-
-      {% if dirname == "" %}
-        {% comment %} These are posts in the root _public folder {% endcomment %}
+      {% comment %} Handle posts in the root /public directory {% endcomment %}
+      {% if group.name == '/public' %}
         {% for post in group.items %}
           <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
         {% endfor %}
       {% else %}
-        {% comment %} This is a subdirectory, so create a collapsible section {% endcomment %}
+        {% comment %} Handle posts in subdirectories {% endcomment %}
         <li>
           <details class="nav-section" open>
-            {% assign folder_name = dirname | remove_first: "/" %}
+            {% assign folder_name = group.name | remove_first: '/public/' %}
             <summary>{{ folder_name }}</summary>
             <ul>
               {% for post in group.items %}
