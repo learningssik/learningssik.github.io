@@ -1,6 +1,6 @@
 ---
 title: 첫 번째 공개 글
-layout: default
+layout: post
 date: 2025-09-29
 ---
 
