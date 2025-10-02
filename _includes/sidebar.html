@@ -4,15 +4,33 @@
 
 <nav class="sidebar-nav">
   <ul>
-    <li>
-      <details class="nav-section" open>
-        <summary>개발</summary>
-        <ul>
-          {% for post in site.public %}
-            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </details>
-    </li>
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+
+    {% comment %} Group posts by their directory {% endcomment %}
+    {% assign posts_by_dir = site.public | group_by: 'dir' %}
+
+    {% for group in posts_by_dir %}
+      {% assign dirname = group.name | remove_first: "/_public" %}
+
+      {% if dirname == "" %}
+        {% comment %} These are posts in the root _public folder {% endcomment %}
+        {% for post in group.items %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      {% else %}
+        {% comment %} This is a subdirectory, so create a collapsible section {% endcomment %}
+        <li>
+          <details class="nav-section" open>
+            {% assign folder_name = dirname | remove_first: "/" %}
+            <summary>{{ folder_name }}</summary>
+            <ul>
+              {% for post in group.items %}
+                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+      {% endif %}
+    {% endfor %}
   </ul>
 </nav>
