@@ -103,24 +103,93 @@ a.site-title:hover {
   color: white;
 }
 
-/* New Post Button */
-.btn.new-post-btn {
-    display: block;
-    width: 100%;
-    background-color: #0052cc; /* Atlassian Blue */
-    color: #fff;
-    text-align: left;
-    padding: 12px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-bottom: 20px;
-    transition: background-color 0.2s ease;
-    box-sizing: border-box; /* Ensure padding is included in width */
+/* New Post Section */
+.new-post-section {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
-.btn.new-post-btn:hover {
-    background-color: #0065ff;
+.new-post-section h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.category-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn.category-btn {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn.category-btn.home {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border-color: #bbdefb;
+}
+
+.btn.category-btn.tech {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border-color: #ce93d8;
+}
+
+.btn.category-btn.projects {
+  background-color: #e8f5e8;
+  color: #388e3c;
+  border-color: #a5d6a7;
+}
+
+.btn.category-btn.daily {
+  background-color: #fff3e0;
+  color: #f57c00;
+  border-color: #ffcc02;
+}
+
+.btn.category-btn.about {
+  background-color: #fce4ec;
+  color: #c2185b;
+  border-color: #f8bbd9;
+}
+
+.btn.category-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn.category-btn.home:hover {
+  background-color: #bbdefb;
+}
+
+.btn.category-btn.tech:hover {
+  background-color: #ce93d8;
+}
+
+.btn.category-btn.projects:hover {
+  background-color: #a5d6a7;
+}
+
+.btn.category-btn.daily:hover {
+  background-color: #ffcc02;
+}
+
+.btn.category-btn.about:hover {
+  background-color: #f8bbd9;
 }
 
 /* Collapsible Navigation */
