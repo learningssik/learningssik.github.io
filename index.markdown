@@ -3,11 +3,28 @@ layout: default
 title: learningssik's Blog
 ---
 
-<section class="hero">
-  <h1>안녕하세요! 👋</h1>
-  <h2><span class="highlight">데이터 엔지니어 learningssik</span>입니다</h2>
-  <p>빅데이터 처리와 머신러닝 파이프라인 구축에 전문성을 가지고 있는 한국의 데이터 엔지니어입니다 🇰🇷</p>
-</section>
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      안녕하세요! 👋<br>
+      <span class="highlight">데이터 엔지니어 learningssik</span>입니다
+    </h1>
+    <p class="hero-description">
+      빅데이터 처리와 머신러닝 파이프라인 구축에 전문성을 가지고 있는<br>
+      <img src="https://raw.githubusercontent.com/learningssik/learningssik/main/south-korea.png" width="20"/> <strong>한국</strong>의 데이터 엔지니어입니다
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">{{ site.public | size }}</div>
+        <div class="stat-label">게시글</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">카테고리</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <h2>최근 글</h2>
 <div class="posts-list">

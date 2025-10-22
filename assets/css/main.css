@@ -311,37 +311,78 @@ body {
 }
 
 /* Hero Section */
-.hero {
-    text-align: center;
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
-.hero h1 {
-    font-size: 2.4rem;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
-    font-weight: 700;
-}
-
-.hero h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #4b5563;
-    font-weight: 500;
-}
-
-.hero .highlight {
-    color: #4f46e5;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    color: #6b7280;
-    max-width: 600px;
+.hero-content {
+    max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-title .highlight {
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
     line-height: 1.6;
+    opacity: 0.95;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    min-width: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Typography */
@@ -505,12 +546,32 @@ a:hover {
         padding: 1rem;
     }
     
-    .hero h1 {
+    .hero-section {
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-title {
         font-size: 2rem;
     }
     
-    .hero h2 {
-        font-size: 1.5rem;
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .stat-item {
+        min-width: 100px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
     }
     
     .sidebar {
