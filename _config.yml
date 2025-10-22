@@ -28,7 +28,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-theme: minima
+# theme: minima  # 커스텀 디자인 사용을 위해 주석 처리
 plugins:
   - jekyll-feed
 
