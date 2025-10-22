@@ -1,19 +1,21 @@
 ---
 layout: default
-title: Home
+title: learningssik's Blog
 ---
 
-# hello 
+# 안녕하세요! 👋
 
-<!--
-![cylinder](https://capsule-render.vercel.app/api?type=cylinder&color=auto&text=Hello%20World!&fontAlignY=45&fontSize=40&height=150&animation=blinking&desc=Wonssik's%20github%20profile&descAlignY=70)
-
-<h1><img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> Hello World! </h1>
-<img src="https://raw.githubusercontent.com/learningssik/learningssik/main/claire-dancing.gif" width="200"/> 
--->
+**learningssik의 블로그에 오신 것을 환영합니다!**
 
 - ‍I'm wonsik, `data engineer` from <img src="https://raw.githubusercontent.com/learningssik/learningssik/main/south-korea.png" width="20"/> <b>South Korea</b> 
 - ‍I majored in `electric engineering` at `DGIST(Daegu Gyeongbuk Institute of Science and Technology)`
+
+## 📝 최근 글
+
+{%- assign recent_posts = site.public | sort: "date" | reverse | limit: 5 -%}
+{%- for post in recent_posts -%}
+- [{{ post.title }}]({{ post.url | relative_url }}) - {{ post.date | date: "%Y년 %m월 %d일" }}
+{%- endfor -%}
 
 
 
