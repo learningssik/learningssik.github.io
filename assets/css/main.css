@@ -312,18 +312,16 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #f8f9fb;
+    color: #1f2937;
     padding: 4rem 0;
     margin-bottom: 3rem;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    text-align: center;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
     padding: 0 2rem;
 }
 
@@ -332,18 +330,18 @@ body {
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    color: #1f2937;
 }
 
 .hero-title .highlight {
-    color: #ffd700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #4f46e5;
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 2.5rem;
     line-height: 1.6;
-    opacity: 0.95;
+    color: #6b7280;
 }
 
 .hero-stats {
@@ -354,33 +352,32 @@ body {
 }
 
 .stat-item {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
     padding: 1.5rem 2rem;
     text-align: center;
     min-width: 120px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffd700;
+    color: #4f46e5;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .stat-label {
     font-size: 1rem;
     font-weight: 500;
-    opacity: 0.9;
+    color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
