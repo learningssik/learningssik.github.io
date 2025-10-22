@@ -5,52 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- 상단 네비게이션 -->
-        <nav class="top-nav">
-            <div class="nav-brand">
-                <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-            </div>
-            <ul class="nav-menu">
-                {%- for item in site.navigation -%}
-                <li class="nav-item">
-                    <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
-                </li>
-                {%- endfor -%}
-            </ul>
-        </nav>
-
-        <!-- 메인 컨텐츠 영역 -->
-        <main class="main-content">
-            {{ content }}
-        </main>
-
-        <!-- 우측 사이드바 -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <h3>최근 글</h3>
-                <ul class="recent-posts">
-                    {%- assign recent_posts = site.public | sort: "date" | reverse | limit: 5 -%}
-                    {%- for post in recent_posts -%}
-                    <li>
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="site-title">
+                <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+            </h1>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    {%- for item in site.navigation -%}
+                    <li class="nav-item">
+                        <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
                     </li>
                     {%- endfor -%}
                 </ul>
-                
-                <div class="write-post-section">
-                    <h4>새 글 작성</h4>
-                    <div class="category-buttons">
-                        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/tech/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Atags: [기술, 개발]%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn tech" target="_blank">💻 기술</a>
-                        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/projects/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Atags: [프로젝트, 개발]%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn projects" target="_blank">🚀 프로젝트</a>
-                        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/daily/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Atags: [일상, 생각]%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn daily" target="_blank">📝 일상</a>
-                    </div>
-                </div>
-            </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+            {% include sidebar.html %}
         </aside>
+        <main class="main-content">
+            {{ content }}
+        </main>
     </div>
+
+    <script src="{{ '/assets/js/sidebar.js' | relative_url }}"></script>
 </body>
 </html>

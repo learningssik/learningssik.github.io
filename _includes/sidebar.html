@@ -1,0 +1,65 @@
+<!-- 프로필 섹션 -->
+<div class="profile-section">
+    <div class="profile-avatar">
+        <img src="https://via.placeholder.com/80x80/4f46e5/ffffff?text=LS" alt="learningssik" class="avatar-img">
+    </div>
+    <div class="profile-info">
+        <h3 class="profile-name">learningssik</h3>
+        <p class="profile-title">데이터 엔지니어</p>
+        <p class="profile-description">
+            빅데이터 처리와 머신러닝 파이프라인 구축에 전문성을 가지고 있는 한국의 데이터 엔지니어입니다.
+        </p>
+    </div>
+    <div class="profile-links">
+        <a href="https://linkedin.com/in/learningssik" class="profile-link" target="_blank">
+            <span class="profile-icon">💼</span> LinkedIn
+        </a>
+        <a href="https://github.com/learningssik" class="profile-link" target="_blank">
+            <span class="profile-icon">🐙</span> GitHub
+        </a>
+        <a href="mailto:learningssik@example.com" class="profile-link">
+            <span class="profile-icon">📧</span> Email
+        </a>
+        <a href="https://old-blog.example.com" class="profile-link" target="_blank">
+            <span class="profile-icon">📝</span> 이전 블로그
+        </a>
+    </div>
+</div>
+
+<!-- 카테고리 섹션 -->
+<div class="category-section">
+    <h3 class="sidebar-title">카테고리</h3>
+    <div class="category-list">
+        <a href="/tech/" class="category-item">
+            <span class="category-icon">💻</span>
+            <span class="category-name">기술</span>
+            <span class="category-count">{{ site.public | where: "category", "tech" | size }}</span>
+        </a>
+        <a href="/projects/" class="category-item">
+            <span class="category-icon">🚀</span>
+            <span class="category-name">프로젝트</span>
+            <span class="category-count">{{ site.public | where: "category", "projects" | size }}</span>
+        </a>
+        <a href="/daily/" class="category-item">
+            <span class="category-icon">📝</span>
+            <span class="category-name">일상</span>
+            <span class="category-count">{{ site.public | where: "category", "daily" | size }}</span>
+        </a>
+    </div>
+</div>
+
+<!-- 새 글 작성 섹션 -->
+<div class="write-section">
+    <h3 class="sidebar-title">새 글 작성</h3>
+    <div class="write-buttons">
+        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/tech/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: tech%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="write-btn tech" target="_blank">
+            💻 기술 글
+        </a>
+        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/projects/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: projects%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="write-btn projects" target="_blank">
+            🚀 프로젝트
+        </a>
+        <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/daily/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: daily%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="write-btn daily" target="_blank">
+            📝 일상
+        </a>
+    </div>
+</div>
