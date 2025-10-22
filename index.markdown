@@ -58,6 +58,17 @@ title: learningssik's Blog
             </a>
           </div>
         </div>
+        
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">✍️ 새 글 작성</h3>
+          <div class="write-post-section">
+            <div class="category-buttons">
+              <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/tech/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: tech%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn tech" target="_blank">💻 기술</a>
+              <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/projects/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: projects%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn projects" target="_blank">🚀 프로젝트</a>
+              <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/daily/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Acategory: daily%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn category-btn daily" target="_blank">📝 일상</a>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="main-column">
