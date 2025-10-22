@@ -40,6 +40,52 @@ collections:
   private:
     output: false
 
+# Defaults for collections
+defaults:
+  - scope:
+      path: "_public/home"
+      type: "public"
+    values:
+      category: "home"
+      layout: "post"
+  - scope:
+      path: "_public/tech"
+      type: "public"
+    values:
+      category: "tech"
+      layout: "post"
+  - scope:
+      path: "_public/projects"
+      type: "public"
+    values:
+      category: "projects"
+      layout: "post"
+  - scope:
+      path: "_public/daily"
+      type: "public"
+    values:
+      category: "daily"
+      layout: "post"
+  - scope:
+      path: "_public/about"
+      type: "public"
+    values:
+      category: "about"
+      layout: "post"
+
+# Navigation menu
+navigation:
+  - title: "홈"
+    url: "/home/"
+  - title: "기술"
+    url: "/tech/"
+  - title: "프로젝트"
+    url: "/projects/"
+  - title: "일상"
+    url: "/daily/"
+  - title: "소개"
+    url: "/about/"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

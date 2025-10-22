@@ -1,5 +1,16 @@
 <h3><a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a></h3>
 
+<!-- Navigation Menu -->
+<nav class="main-nav">
+  <ul class="nav-list">
+    {%- for item in site.navigation -%}
+      <li class="nav-item">
+        <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
 <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/?filename=YYYY-MM-DD-new-post.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Alayout: post%0Adate: YYYY-MM-DD%0A---%0A%0A여기에 본문을 작성하세요." class="btn new-post-btn" target="_blank">+ 새 글 작성하기</a>
 
 <nav class="sidebar-nav">

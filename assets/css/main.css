@@ -68,6 +68,41 @@ a.site-title:hover {
   color: #0052cc;
 }
 
+/* Navigation Menu */
+.main-nav {
+  margin-bottom: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 5px;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: #e6f2ff;
+  color: #0052cc;
+}
+
+.nav-link.active {
+  background-color: #0052cc;
+  color: white;
+}
+
 /* New Post Button */
 .btn.new-post-btn {
     display: block;
