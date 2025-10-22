@@ -3,105 +3,96 @@ layout: default
 title: learningssik's Blog
 ---
 
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
+<div class="hero-section">
+  <div class="container">
+    <div class="hero-content">
       <h1 class="hero-title">
-        <span class="gradient-text">안녕하세요!</span>
-        <br>데이터 엔지니어 <strong>learningssik</strong>입니다
+        안녕하세요! 👋<br>
+        <span class="highlight">데이터 엔지니어 learningssik</span>입니다
       </h1>
       <p class="hero-description">
         빅데이터 처리와 머신러닝 파이프라인 구축에 전문성을 가지고 있는<br>
         <img src="https://raw.githubusercontent.com/learningssik/learningssik/main/south-korea.png" width="20"/> <strong>한국</strong>의 데이터 엔지니어입니다
       </p>
       <div class="hero-stats">
-        <div class="stat">
+        <div class="stat-item">
           <div class="stat-number">{{ site.public | size }}</div>
           <div class="stat-label">게시글</div>
         </div>
-        <div class="stat">
+        <div class="stat-item">
           <div class="stat-number">3</div>
           <div class="stat-label">카테고리</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-bg">
-    <div class="floating-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-      <div class="shape shape-4"></div>
-    </div>
-  </div>
 </div>
 
-<div class="content">
-  <div class="section">
-    <div class="section-header">
-      <h2>📝 최근 글</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="posts-grid">
-      {%- assign recent_posts = site.public | sort: "date" | reverse | limit: 6 -%}
-      {%- for post in recent_posts -%}
-      <article class="post-card">
-        <div class="post-content">
-          <h3 class="post-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h3>
-          <div class="post-meta">
-            <time class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
-            <span class="post-category">{{ post.category }}</span>
+<div class="main-content">
+  <div class="container">
+    <div class="content-grid">
+      <div class="main-column">
+        <section class="posts-section">
+          <h2 class="section-title">📝 최근 글</h2>
+          <div class="posts-list">
+            {%- assign recent_posts = site.public | sort: "date" | reverse | limit: 6 -%}
+            {%- for post in recent_posts -%}
+            <article class="post-card">
+              <div class="post-header">
+                <h3 class="post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <div class="post-meta">
+                  <time class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+                  <span class="post-category">{{ post.category }}</span>
+                </div>
+              </div>
+              {%- if post.excerpt -%}
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+              {%- endif -%}
+              <div class="post-footer">
+                <a href="{{ post.url | relative_url }}" class="read-more">자세히 보기 →</a>
+              </div>
+            </article>
+            {%- endfor -%}
           </div>
-          {%- if post.excerpt -%}
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-          {%- endif -%}
+        </section>
+      </div>
+      
+      <div class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">🏷️ 카테고리</h3>
+          <div class="category-list">
+            <a href="/tech/" class="category-item tech">
+              <div class="category-icon">💻</div>
+              <div class="category-info">
+                <div class="category-name">기술</div>
+                <div class="category-count">{{ site.public | where: "category", "tech" | size }}개 글</div>
+              </div>
+            </a>
+            <a href="/projects/" class="category-item projects">
+              <div class="category-icon">🚀</div>
+              <div class="category-info">
+                <div class="category-name">프로젝트</div>
+                <div class="category-count">{{ site.public | where: "category", "projects" | size }}개 글</div>
+              </div>
+            </a>
+            <a href="/daily/" class="category-item daily">
+              <div class="category-icon">📝</div>
+              <div class="category-info">
+                <div class="category-name">일상</div>
+                <div class="category-count">{{ site.public | where: "category", "daily" | size }}개 글</div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="post-footer">
-          <a href="{{ post.url | relative_url }}" class="read-more">읽기 →</a>
-        </div>
-      </article>
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-header">
-      <h2>🏷️ 카테고리</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="categories-grid">
-      <a href="/tech/" class="category-card tech">
-        <div class="category-icon">💻</div>
-        <div class="category-content">
-          <h3>기술</h3>
-          <p>데이터 엔지니어링, 머신러닝, 개발 관련 글</p>
-          <div class="category-count">{{ site.public | where: "category", "tech" | size }}개 글</div>
-        </div>
-      </a>
-      <a href="/projects/" class="category-card projects">
-        <div class="category-icon">🚀</div>
-        <div class="category-content">
-          <h3>프로젝트</h3>
-          <p>개인/팀 프로젝트, 포트폴리오</p>
-          <div class="category-count">{{ site.public | where: "category", "projects" | size }}개 글</div>
-        </div>
-      </a>
-      <a href="/daily/" class="category-card daily">
-        <div class="category-icon">📝</div>
-        <div class="category-content">
-          <h3>일상</h3>
-          <p>개발 일상, 학습 기록, 생각</p>
-          <div class="category-count">{{ site.public | where: "category", "daily" | size }}개 글</div>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-/* Glassmorphism & Rounded Design */
+/* Modern Blog Template - Clean & Professional */
 * {
   margin: 0;
   padding: 0;
@@ -109,70 +100,42 @@ title: learningssik's Blog
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  min-height: 100vh;
-  position: relative;
+  background: #fafafa;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-  z-index: -1;
-}
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  overflow: hidden;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+  padding: 0 20px;
 }
 
-.hero-text {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 32px;
-  padding: 4rem 3rem;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  padding: 80px 0;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.hero-text::before {
+.hero-section::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  border-radius: 32px;
-  z-index: -1;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -182,28 +145,20 @@ body::before {
   line-height: 1.2;
 }
 
-.gradient-text {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff9a9e);
+.highlight {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 4s ease-in-out infinite;
-  background-size: 200% 200%;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .hero-description {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 3rem;
   opacity: 0.9;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 300;
 }
 
 .hero-stats {
@@ -213,30 +168,20 @@ body::before {
   margin-top: 2rem;
 }
 
-.stat {
+.stat-item {
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.stat:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #4ecdc4;
 }
 
 .stat-label {
@@ -245,121 +190,51 @@ body::before {
   font-weight: 500;
 }
 
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
+/* Main Content */
+.main-content {
+  padding: 4rem 0;
 }
 
-.floating-shapes {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: float 6s ease-in-out infinite;
-}
-
-.shape-1 {
-  width: 80px;
-  height: 80px;
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 120px;
-  height: 120px;
-  top: 60%;
-  right: 15%;
-  animation-delay: 2s;
-}
-
-.shape-3 {
-  width: 60px;
-  height: 60px;
-  top: 80%;
-  left: 20%;
-  animation-delay: 4s;
-}
-
-.shape-4 {
-  width: 100px;
-  height: 100px;
-  top: 30%;
-  right: 30%;
-  animation-delay: 1s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
-}
-
-.content {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section {
-  margin-bottom: 4rem;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-line {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.posts-grid {
+.content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+/* Posts Section */
+.posts-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2d3748;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .post-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 24px;
+  background: white;
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .post-card::before {
@@ -369,16 +244,8 @@ body::before {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-  border-radius: 24px 24px 0 0;
-}
-
-.post-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 12px 12px 0 0;
 }
 
 .post-title {
@@ -386,17 +253,15 @@ body::before {
 }
 
 .post-title a {
-  color: white;
+  color: #2d3748;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  transition: all 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
 }
 
 .post-title a:hover {
-  color: #4ecdc4;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #667eea;
 }
 
 .post-meta {
@@ -408,25 +273,22 @@ body::before {
 }
 
 .post-date {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 300;
+  color: #718096;
 }
 
 .post-category {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background: #667eea;
   color: white;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post-excerpt {
-  color: rgba(255, 255, 255, 0.9);
+  color: #4a5568;
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  font-weight: 300;
 }
 
 .post-footer {
@@ -435,146 +297,143 @@ body::before {
 }
 
 .read-more {
-  color: #4ecdc4;
+  color: #667eea;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  background: #f7fafc;
 }
 
 .read-more:hover {
-  color: #ff6b6b;
-  transform: translateX(4px);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: #764ba2;
+  background: #edf2f7;
 }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 2rem;
 }
 
-.category-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 28px;
-  padding: 2.5rem;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.sidebar-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.sidebar-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-item {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  position: relative;
-  overflow: hidden;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
-.category-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  transition: all 0.4s ease;
-  border-radius: 28px 28px 0 0;
+.category-item:hover {
+  background: #f7fafc;
+  border-color: #e2e8f0;
+  transform: translateX(4px);
 }
 
-.category-card.tech::before {
-  background: linear-gradient(45deg, #3b82f6, #1d4ed8, #60a5fa);
+.category-item.tech:hover {
+  background: #e6f3ff;
+  border-color: #3b82f6;
 }
 
-.category-card.projects::before {
-  background: linear-gradient(45deg, #10b981, #059669, #34d399);
+.category-item.projects:hover {
+  background: #f0fdf4;
+  border-color: #10b981;
 }
 
-.category-card.daily::before {
-  background: linear-gradient(45deg, #f59e0b, #d97706, #fbbf24);
-}
-
-.category-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.category-card.tech:hover::before {
-  height: 12px;
-}
-
-.category-card.projects:hover::before {
-  height: 12px;
-}
-
-.category-card.daily:hover::before {
-  height: 12px;
+.category-item.daily:hover {
+  background: #fffbeb;
+  border-color: #f59e0b;
 }
 
 .category-icon {
-  font-size: 3.5rem;
+  font-size: 2rem;
   flex-shrink: 0;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
-.category-content h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.category-info {
+  flex: 1;
 }
 
-.category-content p {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-weight: 300;
+.category-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
 }
 
 .category-count {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
   font-size: 0.9rem;
-  font-weight: 600;
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #718096;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
   .hero-stats {
     gap: 2rem;
   }
   
-  .posts-grid {
-    grid-template-columns: 1fr;
+  .stat-item {
+    padding: 1rem 1.5rem;
   }
   
-  .categories-grid {
-    grid-template-columns: 1fr;
+  .hero-section {
+    padding: 60px 0;
   }
   
-  .category-card {
+  .main-content {
+    padding: 2rem 0;
+  }
+  
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
     flex-direction: column;
-    text-align: center;
+    gap: 1rem;
   }
   
-  .content {
-    padding: 2rem 1rem;
+  .post-card {
+    padding: 1.5rem;
+  }
+  
+  .sidebar-section {
+    padding: 1.5rem;
   }
 }
 </style>
