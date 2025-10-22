@@ -31,34 +31,6 @@ title: learningssik's Blog
 <div class="main-content">
   <div class="container">
     <div class="content-grid">
-      <div class="main-column">
-        <section class="posts-section">
-          <h2 class="section-title">📝 최근 글</h2>
-          <div class="posts-list">
-            {%- assign recent_posts = site.public | sort: "date" | reverse | limit: 6 -%}
-            {%- for post in recent_posts -%}
-            <article class="post-card">
-              <div class="post-header">
-                <h3 class="post-title">
-                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h3>
-                <div class="post-meta">
-                  <time class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
-                  <span class="post-category">{{ post.category }}</span>
-                </div>
-              </div>
-              {%- if post.excerpt -%}
-              <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-              {%- endif -%}
-              <div class="post-footer">
-                <a href="{{ post.url | relative_url }}" class="read-more">자세히 보기 →</a>
-              </div>
-            </article>
-            {%- endfor -%}
-          </div>
-        </section>
-      </div>
-      
       <div class="sidebar">
         <div class="sidebar-section">
           <h3 class="sidebar-title">🏷️ 카테고리</h3>
@@ -86,6 +58,34 @@ title: learningssik's Blog
             </a>
           </div>
         </div>
+      </div>
+      
+      <div class="main-column">
+        <section class="posts-section">
+          <h2 class="section-title">📝 최근 글</h2>
+          <div class="posts-list">
+            {%- assign recent_posts = site.public | sort: "date" | reverse | limit: 6 -%}
+            {%- for post in recent_posts -%}
+            <article class="post-card">
+              <div class="post-header">
+                <h3 class="post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <div class="post-meta">
+                  <time class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+                  <span class="post-category">{{ post.category }}</span>
+                </div>
+              </div>
+              {%- if post.excerpt -%}
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+              {%- endif -%}
+              <div class="post-footer">
+                <a href="{{ post.url | relative_url }}" class="read-more">자세히 보기 →</a>
+              </div>
+            </article>
+            {%- endfor -%}
+          </div>
+        </section>
       </div>
     </div>
   </div>
