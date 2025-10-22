@@ -6,6 +6,13 @@ layout: default
   <h1 class="category-title">{{ page.title }}</h1>
   <p class="category-description">{{ page.description }}</p>
   
+  <!-- 글 작성 버튼 -->
+  <div class="write-post-section">
+    <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/{{ page.category }}/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Atags: [태그1, 태그2]%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn write-post-btn" target="_blank">
+      ✍️ 새 글 작성하기
+    </a>
+  </div>
+  
   <div class="posts-list">
     {%- assign category_posts = site.public | where: "category", page.category | sort: "date" | reverse -%}
     
@@ -125,5 +132,32 @@ layout: default
   color: #999;
   font-style: italic;
   padding: 40px;
+}
+
+/* 글 작성 버튼 스타일 */
+.write-post-section {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.btn.write-post-btn {
+  display: inline-block;
+  background-color: #007acc;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 122, 204, 0.3);
+}
+
+.btn.write-post-btn:hover {
+  background-color: #005a9e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 122, 204, 0.4);
+  color: white;
+  text-decoration: none;
 }
 </style>
