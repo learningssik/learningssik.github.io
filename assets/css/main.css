@@ -85,17 +85,24 @@ body {
     font-weight: 500;
 }
 
+/* Left Sidebar */
+.left-sidebar {
+    background: #f7fafc;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-content {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 /* Main Content */
 .main-content {
     padding: 3rem 0;
     background: white;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 3rem;
-    align-items: start;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Posts Section */
@@ -577,9 +584,12 @@ body {
         padding: 0 15px;
     }
     
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .left-sidebar {
+        padding: 1.5rem 0;
+    }
+    
+    .sidebar-content {
+        max-width: 100%;
     }
     
     .hero-stats {
@@ -597,10 +607,7 @@ body {
     
     .main-content {
         padding: 2rem 0;
-    }
-    
-    .sidebar {
-        position: static;
+        max-width: 100%;
     }
     
     .sidebar-section {
