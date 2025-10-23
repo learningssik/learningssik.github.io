@@ -169,14 +169,11 @@ h6 {
 }
 
 .post-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 0.5rem;
     color: #1f2937;
-    width: 100%;
-    display: block;
 }
 
 .post-meta {
