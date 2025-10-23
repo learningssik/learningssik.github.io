@@ -54,28 +54,29 @@ h1 {
     padding-bottom: 0.3em;
 }
 
-h2 {
-    font-size: 1.1em;
+/* H2 styles for post listings (cards, category pages) */
+.post-card h2,
+.post-item h2,
+.category-posts h2 {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
     border-bottom: none;
-    padding-bottom: 0;
-    margin: 1.5em 0 0.5em 0;
-    font-weight: 600;
-    color: #1f2937;
-}
-
-/* H2.post-title specific styling - only for post titles */
-.post-content h2.post-title {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #1f2937;
-    background: none;
     padding: 0;
-    margin: 1.5em 0 0.5em 0;
-    border-radius: 0;
-    border-bottom: none;
 }
 
-.post-content h2.post-title::after {
+/* H2 styles for post content (inside articles) */
+.post-content h2 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 1.5em 0 0.5em 0;
+    border-bottom: none;
+    padding: 0;
+}
+
+.post-content h2::after {
     display: none !important;
     content: none !important;
 }
