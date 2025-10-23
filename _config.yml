@@ -32,6 +32,18 @@ github_username:  jekyll
 plugins:
   - jekyll-feed
 
+# Markdown settings for GitHub-style rendering
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
 # Collections
 collections:
   public:

@@ -39,6 +39,144 @@ body {
     background: #94a3b8;
 }
 
+/* GitHub-style Markdown Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #1f2937;
+}
+
+h1 {
+    font-size: 2em;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: #6b7280;
+}
+
+/* GitHub-style content */
+.post-content {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.post-content h1:first-child,
+.post-content h2:first-child {
+    margin-top: 0;
+}
+
+/* GitHub-style lists */
+.post-content ul,
+.post-content ol {
+    margin: 0.5em 0;
+    padding-left: 2em;
+}
+
+.post-content li {
+    margin: 0.25em 0;
+}
+
+/* GitHub-style blockquotes */
+.post-content blockquote {
+    margin: 1em 0;
+    padding: 0 1em;
+    color: #6b7280;
+    border-left: 0.25em solid #d1d5db;
+    background: #f9fafb;
+}
+
+/* GitHub-style code */
+.post-content code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(175, 184, 193, 0.2);
+    border-radius: 6px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.post-content pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    margin: 1em 0;
+}
+
+.post-content pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Post-specific styles */
+.post {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.edit-post-btn {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.edit-post-btn:hover {
+    background-color: #f3f4f6;
+    text-decoration: none;
+}
+
 /* Site Header */
 .site-header {
     position: sticky;
