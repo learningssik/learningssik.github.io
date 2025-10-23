@@ -27,24 +27,9 @@ excerpt: "GPT-5 Codex와 Cursor AI를 연동하여 개인 블로그를 처음부
 
 ## 🏛️ 아키텍처 다이어그램
 
-```mermaid
-graph TB
-    A[GPT-5 Codex<br/>프롬프트 설계] --> B[Cursor AI<br/>코드 생성]
-    B --> C[Jekyll<br/>정적 사이트 생성]
-    C --> D[GitHub Pages<br/>자동 배포]
-    
-    E[Markdown<br/>콘텐츠] --> C
-    F[CSS/JS<br/>스타일링] --> C
-    G[HTML<br/>레이아웃] --> C
-    
-    H[로컬 개발<br/>bundle exec jekyll serve] --> C
-    I[Git Push<br/>자동 배포 트리거] --> D
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-```
+![AI 블로그 개발 아키텍처](assets/images/ai-blog-architecture.svg)
+
+*GPT-5 Codex → Cursor AI → Jekyll → GitHub Pages 플로우*
 
 ## 🤖 AI 개발 워크플로우
 
@@ -80,20 +65,9 @@ git push origin main
 
 ## 🔄 개발 프로세스 시퀀스
 
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant G as GPT-5 Codex
-    participant C as Cursor AI
-    participant J as Jekyll
-    participant P as GitHub Pages
-    
-    U->>G: 프롬프트 작성
-    G->>C: 최적화된 프롬프트 전달
-    C->>J: 코드 생성 및 적용
-    J->>P: 자동 배포
-    P->>U: 결과 확인
-```
+![AI 개발 프로세스 시퀀스](assets/images/ai-development-sequence.svg)
+
+*사용자 → GPT-5 Codex → Cursor AI → Jekyll → GitHub Pages → 사용자*
 
 ## 🏗️ 개발 과정 상세
 

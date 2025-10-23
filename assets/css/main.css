@@ -68,7 +68,7 @@ h1 {
 
 /* H2 styles for post content (inside articles) */
 .post-content h2 {
-    font-size: 1.1em;
+    font-size: 1.7em;
     font-weight: 600;
     color: #1f2937;
     margin: 1.5em 0 0.5em 0;
@@ -568,7 +568,7 @@ a:hover {
 }
 
 .post-title {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     line-height: 1.3;
