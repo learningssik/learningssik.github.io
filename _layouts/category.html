@@ -6,13 +6,6 @@ layout: default
   <h1 class="category-title">{{ page.title }}</h1>
   <p class="category-description">{{ page.description }}</p>
   
-  <!-- 글 작성 버튼 -->
-  <div class="write-post-section">
-    <a href="https://github.com/learningssik/learningssik.github.io/new/main/_public/{{ page.category }}/?filename=YYYY-MM-DD-글제목.md&value=---%0Atitle: 여기에 글 제목을 입력하세요%0Adate: YYYY-MM-DD%0Atags: [태그1, 태그2]%0Aexcerpt: 글 요약%0A---%0A%0A여기에 본문을 작성하세요." class="btn write-post-btn" target="_blank">
-      ✍️ 새 글 작성하기
-    </a>
-  </div>
-  
   <div class="posts-list">
     {%- assign category_posts = site.public | where: "category", page.category | sort: "date" | reverse -%}
     
@@ -49,9 +42,10 @@ layout: default
 
 <style>
 .category-page {
-  max-width: 800px;
+  max-width: calc(var(--layout-max-width) - var(--layout-side-padding)*2 - var(--layout-gap));
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px var(--content-padding);
 }
 
 .category-title {
@@ -59,36 +53,49 @@ layout: default
   border-bottom: 2px solid #007acc;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  padding-inline: var(--content-padding);
 }
 
 .category-description {
   color: #666;
   font-size: 1.1em;
   margin-bottom: 30px;
+  padding-inline: var(--content-padding);
 }
 
 .posts-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1rem;
 }
 
 .post-item {
-  border: 1px solid #e1e1e1;
-  border-radius: 8px;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: clamp(720px, 68vw, 960px);
 }
 
 .post-item:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 .post-title {
-  margin: 0 0 10px 0;
-  font-size: 1.4em;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 8px;
+  position: relative;
+  border-bottom: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 .post-title a {
@@ -100,13 +107,28 @@ layout: default
   color: #007acc;
 }
 
+.post-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #4f46e5;
+  margin-top: 4px;
+}
+
 .post-meta {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  font-size: 0.9em;
-  color: #666;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.post-excerpt {
+  color: #444;
+  line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 .post-tags {
@@ -125,6 +147,7 @@ layout: default
 .post-excerpt {
   color: #555;
   line-height: 1.6;
+  font-size: 1.05em;
 }
 
 .no-posts {
@@ -135,29 +158,4 @@ layout: default
 }
 
 /* 글 작성 버튼 스타일 */
-.write-post-section {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.btn.write-post-btn {
-  display: inline-block;
-  background-color: #007acc;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1em;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 122, 204, 0.3);
-}
-
-.btn.write-post-btn:hover {
-  background-color: #005a9e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 122, 204, 0.4);
-  color: white;
-  text-decoration: none;
-}
 </style>
