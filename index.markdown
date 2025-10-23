@@ -1,13 +1,13 @@
 ---
 layout: default
-title: learningssik's Blog
+title: Wonlog
 ---
 
 <div class="hero-section">
   <div class="hero-content">
     <h1 class="hero-title">
       안녕하세요! 👋<br>
-      <span class="highlight">데이터 엔지니어 learningssik</span>입니다
+      <span class="highlight">데이터 엔지니어 wonsik</span>입니다
     </h1>
     <p class="hero-description">
       빅데이터 처리와 머신러닝 파이프라인 구축에 전문성을 가지고 있는<br>
