@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Azure AI Search Few-Shot Learning 인덱싱 최적화 시스템"
+date: 2025-01-21 00:00:00 +0900
+categories: tech
+tags: [Azure AI Search, Few-Shot Learning, OpenAI GPT-4, SQL 쿼리 생성, 벡터 검색, AI 최적화]
+excerpt: "Few-Shot Learning을 활용한 지능형 질의문 처리 및 SQL 쿼리 생성 시스템으로, Azure AI Search와 OpenAI GPT-4를 결합하여 사용자의 자연어 질문을 분석하고 정확한 SQL 쿼리를 자동 생성합니다."
+---
+
 # Azure AI Search Few-Shot Learning 인덱싱 최적화 시스템
 
 ## 개요
