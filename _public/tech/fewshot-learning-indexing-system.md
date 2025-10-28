@@ -1,4 +1,4 @@
-# Azure AI Search Few-Shot Learning 인덱싱 최적화 시스템
+# Azure AI Search Few-Shot 인덱싱 최적화 시스템
 
 ## 개요
 
