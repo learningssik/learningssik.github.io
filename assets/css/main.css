@@ -914,7 +914,7 @@ a:hover {
 }
 
 [data-theme="dark"] .sidebar {
-    background: var(--bg-secondary);
+    background: var(--bg-secondary) !important;
     border-right: 1px solid var(--border-primary);
 }
 
@@ -923,11 +923,23 @@ a:hover {
 }
 
 [data-theme="dark"] .sidebar a {
-    color: var(--text-secondary);
+    color: var(--text-primary) !important;
 }
 
 [data-theme="dark"] .sidebar a:hover {
-    color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+}
+
+[data-theme="dark"] .sidebar .btn {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .sidebar .btn:hover {
+    background: var(--bg-secondary) !important;
+    border-color: var(--accent-primary);
+    color: var(--accent-primary) !important;
 }
 
 [data-theme="dark"] .post-card,
@@ -956,7 +968,7 @@ a:hover {
 }
 
 [data-theme="dark"] .profile-section {
-    background: var(--bg-secondary);
+    background: var(--bg-secondary) !important;
     border: 1px solid var(--border-primary);
 }
 
@@ -1082,7 +1094,7 @@ a:hover {
 }
 
 [data-theme="dark"] .hero-content {
-    background: var(--bg-secondary);
+    background: var(--bg-secondary) !important;
     border: 1px solid var(--border-primary);
     border-radius: 12px;
     padding: 2rem;
