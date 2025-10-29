@@ -942,6 +942,19 @@ a:hover {
     color: var(--accent-primary) !important;
 }
 
+/* Social links buttons in sidebar */
+[data-theme="dark"] .sidebar .profile-link {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .sidebar .profile-link:hover {
+    background: var(--bg-secondary) !important;
+    border-color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+}
+
 [data-theme="dark"] .post-card,
 [data-theme="dark"] .post-item {
     background: var(--bg-secondary);
