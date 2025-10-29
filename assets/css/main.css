@@ -914,7 +914,7 @@ a:hover {
 }
 
 [data-theme="dark"] .sidebar {
-    background: var(--bg-secondary) !important;
+    background: #1a1b26 !important;
     border-right: 1px solid var(--border-primary);
 }
 
