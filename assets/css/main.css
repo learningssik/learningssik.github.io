@@ -969,7 +969,15 @@ a:hover {
 }
 
 [data-theme="dark"] .post-title {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .post-title a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .post-title a:hover {
+    color: var(--accent-primary) !important;
 }
 
 [data-theme="dark"] .post-meta {
