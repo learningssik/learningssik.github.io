@@ -26,9 +26,9 @@
     --bg-primary: #111827;
     --bg-secondary: #1f2937;
     --bg-tertiary: #374151;
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-tertiary: #9ca3af;
+    --text-primary: #ffffff;
+    --text-secondary: #e5e7eb;
+    --text-tertiary: #d1d5db;
     --border-primary: #374151;
     --border-secondary: #4b5563;
     --shadow-primary: rgba(0, 0, 0, 0.25);
@@ -1039,6 +1039,70 @@ a:hover {
 [data-theme="dark"] .edit-post-btn:hover {
     background: var(--accent-secondary);
     border-color: var(--accent-secondary);
+}
+
+/* Dark mode main page specific styles */
+[data-theme="dark"] .hero-title {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .hero-title .highlight {
+    color: var(--accent-primary) !important;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .hero-description {
+    color: var(--text-secondary) !important;
+    font-weight: 400;
+}
+
+[data-theme="dark"] .hero-description strong {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .stat-item {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .stat-number {
+    color: var(--accent-primary) !important;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .stat-label {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .hero-section {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .hero-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px var(--shadow-primary);
+}
+
+/* Dark mode recent posts section */
+[data-theme="dark"] h2 {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .read-more {
+    color: var(--accent-primary) !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .read-more:hover {
+    color: var(--accent-secondary) !important;
 }
 
 /* Dark mode link styles */
