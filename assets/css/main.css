@@ -5,6 +5,36 @@
     --layout-side-padding: clamp(1.25rem, 3vw, 2.5rem);
     --layout-gap: clamp(2.5rem, 5vw, 3.75rem);
     --content-padding: clamp(2.25rem, 4vw, 3.5rem);
+    
+    /* Light mode colors */
+    --bg-primary: #f9fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    --border-primary: #e5e7eb;
+    --border-secondary: #d1d5db;
+    --shadow-primary: rgba(0, 0, 0, 0.08);
+    --shadow-secondary: rgba(0, 0, 0, 0.12);
+    --accent-primary: #4f46e5;
+    --accent-secondary: #6366f1;
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --border-primary: #475569;
+    --border-secondary: #64748b;
+    --shadow-primary: rgba(0, 0, 0, 0.3);
+    --shadow-secondary: rgba(0, 0, 0, 0.5);
+    --accent-primary: #6366f1;
+    --accent-secondary: #818cf8;
 }
 
 * {
@@ -17,8 +47,14 @@ body {
     font-family: "Inter", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 17px;
     line-height: 1.6;
-    color: #1f2937;
-    background-color: #f9fafc;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme transition class for smooth changes */
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* Custom Scrollbar */
@@ -27,16 +63,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: var(--bg-tertiary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: var(--border-secondary);
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: var(--text-tertiary);
 }
 
 /* H1 styles for post listings (cards, category pages) */
@@ -45,7 +81,7 @@ body {
 .category-posts h1 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--text-primary);
     margin: 0 0 0.5rem 0;
     border-bottom: none;
     padding: 0;
@@ -58,7 +94,7 @@ body {
     line-height: 1.25;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
-    color: #1f2937;
+    color: var(--text-primary);
     border-bottom: 1px solid #e5e7eb;
     padding-bottom: 0.3em;
 }
@@ -69,7 +105,7 @@ h2, h3, h4, h5, h6 {
     line-height: 1.25;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
-    color: #1f2937;
+    color: var(--text-primary);
 }
 
 /* H2 styles for post listings (cards, category pages) */
@@ -78,7 +114,7 @@ h2, h3, h4, h5, h6 {
 .category-posts h2 {
     font-size: 1.25em;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--text-primary);
     margin: 0 0 0.5rem 0;
     border-bottom: none;
     padding: 0;
@@ -88,7 +124,7 @@ h2, h3, h4, h5, h6 {
 .post-content h2 {
     font-size: 1.7em;
     font-weight: 600;
-    color: #1f2937;
+    color: var(--text-primary);
     margin: 1.5em 0 0.5em 0;
     border-bottom: none;
     padding: 0;
@@ -192,7 +228,7 @@ h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: var(--text-primary);
 }
 
 .post-meta {
@@ -221,7 +257,7 @@ h6 {
 .site-header {
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--bg-secondary);
     border-bottom: 1px solid #e2e8f0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -243,7 +279,7 @@ h6 {
 }
 
 .site-title a {
-    color: #1f2937;
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -294,7 +330,7 @@ h6 {
 
 /* Profile Section */
 .profile-section {
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 10px;
     padding: 1.5rem;
     margin-top: 2rem;
@@ -325,7 +361,7 @@ h6 {
 .profile-name {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #1f2937;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
@@ -396,7 +432,7 @@ h6 {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 8px;
     color: #4b5563;
     text-decoration: none;
@@ -446,7 +482,7 @@ h6 {
 /* Hero Section */
 .hero-section {
     background: #f8f9fb;
-    color: #1f2937;
+    color: var(--text-primary);
     padding: 3.5rem var(--content-padding);
     margin-bottom: 3rem;
     text-align: center;
@@ -462,7 +498,7 @@ h6 {
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    color: #1f2937;
+    color: var(--text-primary);
 }
 
 .hero-title .highlight {
@@ -484,7 +520,7 @@ h6 {
 }
 
 .stat-item {
-    background: white;
+    background: var(--bg-secondary);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem 2rem;
@@ -516,7 +552,7 @@ h6 {
 
 /* Typography */
 h2, h3, h4, h5, h6 {
-    color: #1f2937;
+    color: var(--text-primary);
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -571,7 +607,7 @@ a:hover {
 
 /* Post Cards */
 .post-card {
-    background: white;
+    background: var(--bg-secondary);
     border-radius: 10px;
     padding: 1.5rem 1.75rem 1.5rem 1.25rem;
     margin-bottom: 2rem;
@@ -600,7 +636,7 @@ a:hover {
 }
 
 .post-title a {
-    color: #1f2937;
+    color: var(--text-primary);
     transition: color 0.2s ease;
 }
 
@@ -804,4 +840,119 @@ a:hover {
     .sidebar-toggle {
         display: none;
     }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    border-radius: 50px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.dark-mode-toggle:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-secondary);
+}
+
+.dark-mode-toggle .toggle-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle .sun-icon {
+    display: block;
+}
+
+.dark-mode-toggle .moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .dark-mode-toggle .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .dark-mode-toggle .moon-icon {
+    display: block;
+}
+
+/* Dark mode specific styles for components */
+[data-theme="dark"] .sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .post-card,
+[data-theme="dark"] .post-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    box-shadow: 0 2px 8px var(--shadow-primary);
+}
+
+[data-theme="dark"] .post-card:hover,
+[data-theme="dark"] .post-item:hover {
+    box-shadow: 0 6px 12px var(--shadow-secondary);
+}
+
+[data-theme="dark"] .profile-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .category-page {
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .post-content {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .post-content h1,
+[data-theme="dark"] .post-content h2,
+[data-theme="dark"] .post-content h3,
+[data-theme="dark"] .post-content h4,
+[data-theme="dark"] .post-content h5,
+[data-theme="dark"] .post-content h6 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .post-content p,
+[data-theme="dark"] .post-content li {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .post-content code {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .post-content pre {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+[data-theme="dark"] .post-content blockquote {
+    border-left: 4px solid var(--accent-primary);
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
 }
