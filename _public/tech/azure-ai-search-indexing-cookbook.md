@@ -301,6 +301,15 @@ def load_to_gcs(index_name):
 
 ### 4. 인덱스 업데이트 시스템
 
+✅ 목적: 인덱스 업데이트
+
+| 목적 | 설명 |
+| ------------- | ------------------------------------- |
+| 🔄 최신 데이터 반영 | 소스 시스템 변경 사항을 인덱스에 반영하여 검색 결과 최신성 확보 |
+| ⚙️ 성능 최적화 | 불필요한 필드 제거 및 필요한 필드만 유지해 검색 속도와 효율 개선 |
+| 🧩 데이터 일관성 유지 | 잘못된 값 수정 및 규칙 기반 업데이트로 인덱스 품질 보장 |
+| 📊 분석 활용성 강화 | 신규 속성 추가·갱신을 통해 검색 및 분석 활용 범위 확대 |
+
 #### 개별 문서 업데이트
 ```python
 def update_document(index_name, document_id, update_fields):
@@ -352,6 +361,56 @@ def update_document(index_name, document_id, update_fields):
         print("After update:", u)
     
     return doc
+```
+
+#### 예시: id와 TBL_PHYS_NM로 특정 문서 업데이트
+```python
+from azure.search.documents import SearchClient
+from azure.core.credentials import AzureKeyCredential
+from azure.search.documents.indexes import SearchIndexClient
+
+# Azure AI Search 인스턴스 설정
+service_endpoint = "https://index-aqua.search.windows.net"
+api_key = secret_manage('index-aqua')
+credential = AzureKeyCredential(api_key)
+
+index_name = 'csqt-tbl-index-dev'
+
+# 인덱스 클라이언트 생성
+index_client = SearchIndexClient(endpoint=service_endpoint, credential=credential)
+search_client = SearchClient(endpoint=service_endpoint, index_name=index_name, credential=credential)
+
+# 1) 기존 문서 조회 (id=60, TBL_PHYS_NM='L0NML_F_QMS_CC_HSD_01D_A_CZ')
+results = search_client.search(
+    search_text="*",
+    filter="id eq '60' and TBL_PHYS_NM eq 'L0NML_F_QMS_CC_HSD_01D_A_CZ'"
+)
+
+doc = None
+for result in results:
+    doc = dict(result)
+    break
+
+if not doc:
+    raise ValueError("문서를 찾을 수 없습니다.")
+
+print("Before update:", doc)
+
+# 2) 원하는 필드만 수정
+doc["DATA_SET_NM"] = "DLKVW"
+
+# 3) 수정된 문서 다시 업서트
+index_client.merge_or_upload_documents([doc])
+
+# 4) 업데이트 후 확인
+updated_results = search_client.search(
+    search_text="*",
+    filter="id eq '60' and TBL_PHYS_NM eq 'L0NML_F_QMS_CC_HSD_01D_A_CZ'",
+    select=["id", "TBL_PHYS_NM", "DATA_SET_NM"]
+)
+
+for u in updated_results:
+    print("After update:", u)
 ```
 
 ### 5. 인덱스 삭제 시스템
