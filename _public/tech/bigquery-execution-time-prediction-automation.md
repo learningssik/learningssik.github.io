@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BigQuery 실행 시간 추정 자동화 시스템"
-date: 2025-01-21 00:00:00 +0900
+date: 2025-10-28 00:00:00 +0900
 categories: tech
 tags: [BigQuery, 실행 시간 추정, Dry Run, 로그 변환 모델, 자동화, 데이터 분석, 쿼리 최적화]
 excerpt: "BigQuery 쿼리의 실행 시간을 사전에 정확하게 추정하기 위한 자동화 시스템으로, Dry Run을 활용하여 쿼리 실행 전에 예상 실행 시간을 계산하고 개발자들이 쿼리 최적화를 미리 수행할 수 있도록 도와줍니다."
@@ -425,7 +425,7 @@ predictor = BigQueryExecutionTimePredictor(service_account_email)
 # 단일 쿼리 예측
 sample_query = """
 SELECT COUNT(*) 
-FROM `gcp-prod-edp-lake.DLKVW.L2DF_UMTV_VOD_WTCH_H` 
+FROM `your-gcp-project.your-dataset.your-table-name` 
 WHERE P_YYYYMMDD BETWEEN '2024-04-01' AND '2024-04-30'
 """
 result = predictor.predict_single_query(sample_query)
@@ -804,7 +804,7 @@ class QueryOptimizationAdvisor:
 # 사용 예시
 advisor = QueryOptimizationAdvisor()
 sample_query = """
-SELECT * FROM `gcp-prod-edp-lake.DLKVW.L2DF_UMTV_VOD_WTCH_H` 
+SELECT * FROM `your-gcp-project.your-dataset.your-table-name` 
 WHERE P_YYYYMMDD BETWEEN '2024-04-01' AND '2024-04-30'
 """
 suggestions = advisor.analyze_query(sample_query)

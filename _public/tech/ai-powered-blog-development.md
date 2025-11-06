@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI로 만든 개인 블로그: GPT-5 Codex + Cursor AI 개발기"
-date: 2025-01-27
+date: 2025-10-23
 categories: tech
 tags: [AI, GPT-5, Cursor, Jekyll, 블로그, 개발]
 excerpt: "GPT-5 Codex와 Cursor AI를 연동하여 개인 블로그를 처음부터 끝까지 개발한 과정을 기록합니다."

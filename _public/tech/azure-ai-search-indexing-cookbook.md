@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Azure AI Search 인덱싱 관리 쿡북"
-date: 2025-01-21 00:00:00 +0900
+date: 2025-10-28 00:00:00 +0900
 categories: tech
 tags: [Azure AI Search, 인덱싱, 쿡북, Python, API 관리, 데이터 백업, 인덱스 복사]
 excerpt: "Azure AI Search 인덱스의 전체 생명주기를 효율적으로 관리하기 위한 재사용 가능한 기능들의 모음으로, 인덱스 생성, 조회, 저장, 삭제, 복사 등 모든 인덱스 관리 작업을 표준화된 함수로 제공합니다."
@@ -49,8 +49,8 @@ def get_index_overview():
     from azure.search.documents import SearchClient
     
     # Azure AI Search 인스턴스 설정
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     # 인덱스 클라이언트 생성
@@ -98,8 +98,8 @@ def get_index_metadata(index_name):
     from azure.search.documents.indexes import SearchIndexClient
     
     # Azure AI Search 인스턴스 설정
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     # 인덱스 클라이언트 생성
@@ -222,8 +222,8 @@ def load_to_gcs(index_name):
     from datetime import datetime
     
     # Azure AI Search 인스턴스 설정
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     # 클라이언트 생성
@@ -287,7 +287,7 @@ def load_to_gcs(index_name):
     
     # GCS 업로드
     gcs_client = storage.Client()
-    bucket = gcs_client.bucket("bucket-dev-aqua-index-hist")
+    bucket = gcs_client.bucket("your-gcs-bucket-name")
     blob = bucket.blob(csv_filename)
     blob.upload_from_filename(csv_filename)
     print(f"✅ GCS 업로드 완료: {csv_filename}")
@@ -319,8 +319,8 @@ def update_document(index_name, document_id, update_fields):
     from azure.search.documents.indexes import SearchIndexClient
     
     # Azure AI Search 인스턴스 설정
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     # 클라이언트 생성
@@ -397,7 +397,7 @@ if not doc:
 print("Before update:", doc)
 
 # 2) 원하는 필드만 수정
-doc["DATA_SET_NM"] = "DLKVW"
+doc["DATA_SET_NM"] = "YOUR_DATASET_NAME"
 
 # 3) 수정된 문서 다시 업서트
 index_client.merge_or_upload_documents([doc])
@@ -425,8 +425,8 @@ def delete_index(index_name):
     from azure.core.exceptions import ResourceNotFoundError
     
     # Azure AI Search 인스턴스 설정
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     # 인덱스 클라이언트 생성
@@ -457,8 +457,8 @@ def delete_documents_by_filter(index_name, filter_query):
     from azure.search.documents.indexes import SearchIndexClient
     from azure.search.documents import SearchClient
     
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     search_client = SearchClient(service_endpoint, index_name, credential=credential)
@@ -685,8 +685,8 @@ def create_tbl_index(index_name):
     )
     
     # 인덱스 생성
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     index_client = SearchIndexClient(endpoint=service_endpoint, credential=credential)
@@ -789,8 +789,8 @@ def create_col_index(index_name):
     )
     
     # 인덱스 생성
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     index_client = SearchIndexClient(endpoint=service_endpoint, credential=credential)
@@ -885,8 +885,8 @@ def create_fewshot_index(index_name):
     )
     
     # 인덱스 생성
-    service_endpoint = "https://index-aqua.search.windows.net"
-    api_key = secret_manage('index-aqua')
+    service_endpoint = "https://your-search-service.search.windows.net"
+    api_key = secret_manage('your-azure-search-api-key')
     credential = AzureKeyCredential(api_key)
     
     index_client = SearchIndexClient(endpoint=service_endpoint, credential=credential)
@@ -994,19 +994,19 @@ class AzureSearchConfig:
     """Azure AI Search 설정 관리"""
     service_endpoint: str
     api_key_secret: str
-    project_id: str = "55942789702"
+    project_id: str = "your-gcp-project-id"
     
     @classmethod
     def from_environment(cls, env: str = "dev"):
         """환경별 설정 생성"""
         configs = {
             "dev": {
-                "service_endpoint": "https://index-aqua.search.windows.net",
-                "api_key_secret": "index-aqua"
+                "service_endpoint": "https://your-search-service-dev.search.windows.net",
+                "api_key_secret": "your-azure-search-api-key-dev"
             },
             "prod": {
-                "service_endpoint": "https://index-aqua-prod.search.windows.net",
-                "api_key_secret": "index-aqua-prod"
+                "service_endpoint": "https://your-search-service-prod.search.windows.net",
+                "api_key_secret": "your-azure-search-api-key-prod"
             }
         }
         
@@ -1286,8 +1286,8 @@ class TestIndexManagerIntegration(unittest.TestCase):
     def setUp(self):
         self.test_index_name = "test-cookbook-integration"
         self.index_manager = IndexManager(
-            service_endpoint="https://index-aqua.search.windows.net",
-            api_key=secret_manage('index-aqua')
+            service_endpoint="https://your-search-service.search.windows.net",
+            api_key=secret_manage('your-azure-search-api-key')
         )
     
     def tearDown(self):

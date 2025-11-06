@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Azure AI Search 메타데이터 인덱싱 최적화 시스템"
-date: 2025-01-21
+date: 2025-10-28
 categories: [개발]
 tags: [Azure AI Search, 메타데이터, 인덱싱, AI, 벡터검색, GPT-4, BigQuery]
 ---
@@ -297,7 +297,7 @@ def log_indexing_progress(current, total, domain, index_type):
 environments:
   dev:
     azure_search:
-      endpoint: "https://index-aqua-dev.search.windows.net"
+      endpoint: "https://your-search-service-dev.search.windows.net"
       api_version: "2023-10-01-preview"
     openai:
       model: "gpt-4"
@@ -305,7 +305,7 @@ environments:
   
   prod:
     azure_search:
-      endpoint: "https://index-aqua.search.windows.net"
+      endpoint: "https://your-search-service.search.windows.net"
       api_version: "2023-10-01-preview"
     openai:
       model: "gpt-4"
