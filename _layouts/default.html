@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -52,5 +53,56 @@
 
     <script src="{{ '/assets/js/sidebar.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+    <script>
+        // Mermaid 초기화 및 렌더링
+        document.addEventListener('DOMContentLoaded', function() {
+            // mermaid 코드 블록을 .mermaid 클래스로 변환
+            document.querySelectorAll('code.language-mermaid').forEach(function(code) {
+                const pre = code.parentElement;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'mermaid';
+                wrapper.textContent = code.textContent;
+                pre.parentElement.replaceChild(wrapper, pre);
+            });
+            
+            const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: currentTheme,
+                securityLevel: 'loose',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true
+                }
+            });
+            
+            // 다크모드 변경 시 Mermaid 테마 업데이트
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                        const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+                        mermaid.initialize({ 
+                            startOnLoad: false,
+                            theme: theme,
+                            securityLevel: 'loose'
+                        });
+                        // 모든 mermaid 다이어그램 재렌더링
+                        document.querySelectorAll('.mermaid').forEach(function(element) {
+                            const id = 'mermaid-' + Math.random().toString(36).substr(2, 9);
+                            const definition = element.textContent;
+                            mermaid.render(id, definition).then(function(result) {
+                                element.innerHTML = result.svg;
+                            });
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme']
+            });
+        });
+    </script>
 </body>
 </html>

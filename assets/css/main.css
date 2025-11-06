@@ -209,6 +209,17 @@ h6 {
     border-radius: 0;
 }
 
+/* Mermaid diagram styles */
+.post-content .mermaid {
+    margin: 2em 0;
+    text-align: center;
+    background: transparent;
+}
+
+.post-content pre code.language-mermaid {
+    background: transparent;
+}
+
 /* Post-specific styles */
 .post {
     max-width: 100%;
@@ -1061,6 +1072,10 @@ a:hover {
 [data-theme="dark"] .post-content th {
     background: var(--bg-tertiary);
     color: var(--text-primary);
+}
+
+[data-theme="dark"] .post-content .mermaid {
+    background: transparent;
 }
 
 [data-theme="dark"] .edit-post-btn {
