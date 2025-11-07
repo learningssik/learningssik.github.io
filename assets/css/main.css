@@ -158,8 +158,10 @@ h6 {
     word-wrap: break-word;
 }
 
-.post-content h1:first-child {
-    display: none; /* 타이틀과 중복되므로 숨김 */
+/* 포스트 본문의 첫 번째 h1 숨김 (타이틀과 중복 방지) */
+.post .post-content > h1:first-child,
+.post-content > h1:first-of-type {
+    display: none !important; /* 타이틀과 중복되므로 숨김 */
 }
 
 .post-content h2:first-child {
