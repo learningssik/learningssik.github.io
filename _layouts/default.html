@@ -54,6 +54,18 @@
     <script src="{{ '/assets/js/sidebar.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
     <script>
+        // 포스트 본문의 첫 번째 h1 제거 (타이틀과 중복 방지)
+        document.addEventListener('DOMContentLoaded', function() {
+            const postContent = document.querySelector('.post .post-content');
+            if (postContent) {
+                const firstH1 = postContent.querySelector('h1:first-of-type');
+                if (firstH1 && document.querySelector('.post-header .post-title')) {
+                    firstH1.remove();
+                }
+            }
+        });
+    </script>
+    <script>
         // Mermaid 초기화 및 렌더링
         document.addEventListener('DOMContentLoaded', function() {
             // mermaid 코드 블록을 .mermaid 클래스로 변환
