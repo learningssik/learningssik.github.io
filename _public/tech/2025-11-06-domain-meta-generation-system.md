@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Domain 메타 자동 생성 시스템 개발"
-date: 2025-11-06 00:00:00 +0900
+date: 2025-11-27 11:19:45 +0900
 categories: tech
-tags: [AQuA, Azure AI Search, MySQL, LLM, 도메인 오케스트레이션, 자동화]
+tags: [AQuA, Azure AI Search, MySQL, LLM, 도메인 오케스트레이션, 자동화, 메타데이터 관리]
 excerpt: "AQuA 시스템의 도메인 메타데이터를 자동으로 생성하고 관리하는 시스템으로, Azure AI Search와 MySQL을 연계하여 LLM을 활용해 도메인별 설명과 샘플 질문 리스트를 자동 생성합니다."
 ---
 
