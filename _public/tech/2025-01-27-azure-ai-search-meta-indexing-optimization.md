@@ -9,7 +9,7 @@ excerpt: "메타데이터 검색 시스템의 품질 향상과 비용 효율성�
 
 # Azure AI Search 메타데이터 인덱스 최적화 가이드
 
-본 문서는 메타데이터(테이블, 컬럼 정보) 검색 시스템의 품질 향상과 비용 효율성을 위해 Azure AI Search 인덱스 구성을 최적화한 내용을 담고 있습니다.
+메타데이터(테이블, 컬럼 정보) 검색 시스템의 품질 향상과 비용 효율성을 위한 Azure AI Search 인덱스 구성 최적화 과정을 정리했다.
 
 ## 1. 주요 수정 및 개선 사항
 
@@ -33,7 +33,7 @@ excerpt: "메타데이터 검색 시스템의 품질 향상과 비용 효율성�
 
 ## 2. 최종 수정된 Python 코드
 
-> **참고:** `azure-search-documents` 라이브러리 버전 호환성을 위해 `VectorCompression`(압축) 기능은 제외된 안정적인 버전입니다. (추후 라이브러리 업데이트 시 압축 적용 권장)
+> 참고: `azure-search-documents` 라이브러리 버전 호환성을 위해 `VectorCompression`(압축) 기능은 제외된 안정적인 버전입니다. (추후 라이브러리 업데이트 시 압축 적용 권장)
 
 ```python
 from azure.search.documents import SearchClient
