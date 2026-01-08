@@ -35,15 +35,20 @@
             <span class="category-name">기술</span>
             <span class="category-count">{{ site.public | where: "category", "tech" | size }}</span>
         </a>
-        <a href="/projects/" class="category-item">
-            <span class="category-icon">🚀</span>
-            <span class="category-name">프로젝트</span>
-            <span class="category-count">{{ site.public | where: "category", "projects" | size }}</span>
+        <a href="/retrospective/" class="category-item">
+            <span class="category-icon">🤔</span>
+            <span class="category-name">회고</span>
+            <span class="category-count">{{ site.public | where: "category", "retrospective" | size }}</span>
         </a>
-        <a href="/daily/" class="category-item">
-            <span class="category-icon">📝</span>
-            <span class="category-name">일상</span>
-            <span class="category-count">{{ site.public | where: "category", "daily" | size }}</span>
+        <a href="/books/" class="category-item">
+            <span class="category-icon">📚</span>
+            <span class="category-name">독서</span>
+            <span class="category-count">{{ site.public | where: "category", "books" | size }}</span>
+        </a>
+        <a href="/misc/" class="category-item">
+            <span class="category-icon">🌟</span>
+            <span class="category-name">기타</span>
+            <span class="category-count">{{ site.public | where: "category", "misc" | size }}</span>
         </a>
     </div>
 </div>

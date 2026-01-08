@@ -66,6 +66,7 @@ learningssik.github.io/
 ├── _posts/                 # 블로그 포스트
 ├── _public/                # 공개 콘텐츠
 │   ├── books/              # 독서 카테고리
+│   ├── misc/               # 기타 카테고리
 │   ├── retrospective/      # 회고 카테고리
 │   └── tech/               # 기술 카테고리
 ├── assets/                 # 정적 자산

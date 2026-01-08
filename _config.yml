@@ -72,6 +72,12 @@ defaults:
     values:
       category: "books"
       layout: "post"
+  - scope:
+      path: "_public/misc"
+      type: "public"
+    values:
+      category: "misc"
+      layout: "post"
 
 # Navigation menu
 navigation:
@@ -81,6 +87,8 @@ navigation:
     url: "/retrospective/"
   - title: "독서"
     url: "/books/"
+  - title: "기타"
+    url: "/misc/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
