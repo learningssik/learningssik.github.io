@@ -65,8 +65,8 @@ learningssik.github.io/
 │   └── sidebar.html        # 사이드바 컴포넌트
 ├── _posts/                 # 블로그 포스트
 ├── _public/                # 공개 콘텐츠
-│   ├── daily/              # 일상 카테고리
-│   ├── projects/           # 프로젝트 카테고리
+│   ├── books/              # 독서 카테고리
+│   ├── retrospective/      # 회고 카테고리
 │   └── tech/               # 기술 카테고리
 ├── assets/                 # 정적 자산
 │   ├── css/

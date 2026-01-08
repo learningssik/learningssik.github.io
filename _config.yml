@@ -61,26 +61,26 @@ defaults:
       category: "tech"
       layout: "post"
   - scope:
-      path: "_public/projects"
+      path: "_public/retrospective"
       type: "public"
     values:
-      category: "projects"
+      category: "retrospective"
       layout: "post"
   - scope:
-      path: "_public/daily"
+      path: "_public/books"
       type: "public"
     values:
-      category: "daily"
+      category: "books"
       layout: "post"
 
 # Navigation menu
 navigation:
   - title: "기술"
     url: "/tech/"
-  - title: "프로젝트"
-    url: "/projects/"
-  - title: "일상"
-    url: "/daily/"
+  - title: "회고"
+    url: "/retrospective/"
+  - title: "독서"
+    url: "/books/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
